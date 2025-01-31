@@ -10,6 +10,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import SignIn from './signin.tsx';
 import SignUp from './signup.tsx';
+import Dashboard from './dashboard.tsx';
+import ProtectedRoute from './protected-route.tsx';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -38,6 +40,9 @@ root.render(
     <Route path="/blogpost/:slug" element={<BlogPost />} />
     <Route path="/signin" element={<SignIn />} />
     <Route path="/signup" element={<SignUp />} />
+    <Route path="/dashboard" element= {
+        <ProtectedRoute element={<Dashboard />} />
+      } />
     
   </Routes>
 </Router>
